@@ -1,25 +1,23 @@
 import { hash } from './hashing';
 
 /**
- * Contains passphrases for common networks:
- * * `Networks.PUBLIC`: `Public Global Stellar Network ; September 2015`
- * * `Networks.TESTNET`: `Test SDF Network ; September 2015`
+ *  当前包括公共网络的密钥:
+ * * `Networks.PUBLIC`: `osch public network`
+ * * `Networks.TESTNET`: `osch test network`
  * @type {{PUBLIC: string, TESTNET: string}}
  */
 export const Networks = {
-  PUBLIC: 'Public Global Stellar Network ; September 2015',
-  TESTNET: 'Test SDF Network ; September 2015'
+  PUBLIC: 'osch public network',
+  TESTNET: 'osch test network'
 };
 
 let current = null;
 
 /**
- * The Network class provides helper methods to get the passphrase or id for different
- * stellar networks.  It also provides the {@link Network.current} class method that returns the network
- * that will be used by this process for the purposes of generating signatures.
- *
- * You should select network your app will use before adding the first signature. You can use the `use`,
- * `usePublicNetwork` and `useTestNetwork` helper methods.
+ *  Network类提供了一个帮助方法用来获取网络密码或id。
+ * 它提供的 {@link Network.current} 类方法返回当进程使用的网络可以被用来网络签名 
+ * 
+ * 你应该选择选择添加好网络在创建transaction签名之前，可以用`use` helper methods.
  *
  * Creates a new `Network` object.
  * @constructor
@@ -31,7 +29,7 @@ export class Network {
   }
 
   /**
-   * Use Stellar Public Network
+   * Use Osch Public Network
    * @returns {void}
    */
   static usePublicNetwork() {

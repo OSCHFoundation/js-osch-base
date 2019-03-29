@@ -10,11 +10,9 @@ import { Memo } from './memo';
 import { Keypair } from './keypair';
 
 /**
- * Use {@link TransactionBuilder} to build a transaction object, unless you have
- * an object or base64-encoded string of the transaction envelope XDR.
- * Once a Transaction has been created, its attributes and operations
- * should not be changed. You should only add signatures (using {@link Transaction#sign}) to a Transaction object before
- * submitting to the network or forwarding on to additional signers.
+ * 使用{@link TransactionBuilder}可以构建一个transaction对象,除非你已经有一个oject或base64编码过的transaction xdr
+ * 一但Transaction是被创建，它的属性和operations不应该在被修改，
+ * 在提交到公网之前，你仅仅可以在 Transaction对象上添加签名 (using {@link Transaction#sign}) 
  * @constructor
  * @param {string|xdr.TransactionEnvelope} envelope - The transaction envelope object or base64 encoded string.
  */
@@ -79,7 +77,7 @@ export class Transaction {
    *
    * When you get a transaction XDR to sign....
    * - Instantiate a `Transaction` object with the XDR
-   * - Use {@link Keypair} to generate a keypair object for your Stellar seed.
+   * - Use {@link Keypair} to generate a keypair object for your Osch seed.
    * - Run `getKeypairSignature` with that keypair
    * - Send back the signature along with your publicKey (not your secret seed!)
    *
@@ -177,7 +175,7 @@ export class Transaction {
   /**
    * Returns the "signature base" of this transaction, which is the value
    * that, when hashed, should be signed to create a signature that
-   * validators on the Stellar Network will accept.
+   * validators on the Osch Network will accept.
    *
    * It is composed of a 4 prefix bytes followed by the xdr-encoded form
    * of this transaction.

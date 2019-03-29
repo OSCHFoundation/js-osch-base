@@ -15,7 +15,7 @@ const versionBytes = {
 };
 
 /**
- * StrKey is a helper class that allows encoding and decoding strkey.
+ *  StrKey是一个帮助工具类，它可以编码和解码strkey.
  */
 export class StrKey {
   /**
@@ -37,7 +37,7 @@ export class StrKey {
   }
 
   /**
-   * Returns true if the given Stellar public key is a valid ed25519 public key.
+   * Returns true if the given Oschain public key is a valid ed25519 public key.
    * @param {string} publicKey public key to check
    * @returns {boolean}
    */
@@ -64,7 +64,7 @@ export class StrKey {
   }
 
   /**
-   * Returns true if the given Stellar secret key is a valid ed25519 secret seed.
+   * Returns true if the given Oschain secret key is a valid ed25519 secret seed.
    * @param {string} seed seed to check
    * @returns {boolean}
    */

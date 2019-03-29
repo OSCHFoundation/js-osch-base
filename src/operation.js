@@ -21,27 +21,23 @@ const MAX_INT64 = '9223372036854775807';
  * When set using `{@link Operation.setOptions}` option, requires the issuing account to
  * give other accounts permission before they can hold the issuing account’s credit.
  * @constant
- * @see [Account flags](https://www.stellar.org/developers/guides/concepts/accounts.html#flags)
  */
 export const AuthRequiredFlag = 1 << 0;
 /**
  * When set using `{@link Operation.setOptions}` option, allows the issuing account to
  * revoke its credit held by other accounts.
  * @constant
- * @see [Account flags](https://www.stellar.org/developers/guides/concepts/accounts.html#flags)
  */
 export const AuthRevocableFlag = 1 << 1;
 /**
  * When set using `{@link Operation.setOptions}` option, then none of the authorization flags
  * can be set and the account can never be deleted.
  * @constant
- * @see [Account flags](https://www.stellar.org/developers/guides/concepts/accounts.html#flags)
  */
 export const AuthImmutableFlag = 1 << 2;
 
 /**
- * `Operation` class represents [operations](https://www.stellar.org/developers/learn/concepts/operations.html) in Stellar network.
- * Use one of static methods to create operations:
+ * `Operation`是Osch网络中的基本操作，Osch包括如下操作
  * * `{@link Operation.createAccount}`
  * * `{@link Operation.payment}`
  * * `{@link Operation.pathPayment}`
@@ -147,7 +143,6 @@ export class Operation {
         result.lowThreshold = attrs.lowThreshold();
         result.medThreshold = attrs.medThreshold();
         result.highThreshold = attrs.highThreshold();
-        // home_domain is checked by iscntrl in stellar-core
         result.homeDomain =
           attrs.homeDomain() !== undefined
             ? attrs.homeDomain().toString('ascii')
@@ -202,7 +197,6 @@ export class Operation {
       }
       case 'manageDatum': {
         result.type = 'manageData';
-        // manage_data.name is checked by iscntrl in stellar-core
         result.name = attrs.dataName().toString('ascii');
         result.value = attrs.dataValue();
         break;

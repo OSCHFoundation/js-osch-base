@@ -12,34 +12,26 @@ export const BASE_FEE = 100; // Stroops
 /**
  * @constant
  * @see {@link TransactionBuilder#setTimeout}
- * @see [Timeout](https://www.stellar.org/developers/horizon/reference/endpoints/transactions-create.html#timeout)
  */
 export const TimeoutInfinite = 0;
 
 /**
- * <p>Transaction builder helps constructs a new `{@link Transaction}` using the given {@link Account}
- * as the transaction's "source account". The transaction will use the current sequence
- * number of the given account as its sequence number and increment the given account's
- * sequence number by one. The given source account must include a private key for signing
- * the transaction or an error will be thrown.</p>
+ * <p>Transaction builder能帮助我们构建一个新的`{@link Transaction}`,首先使用传入的{@link Account}作为
+ * "source account".Transaction将使用传入的{@link Account}的当前序列号作为其序列号，并将给定帐户的序列号递增一。
+ * 给定的源帐户必须包含用于签名事务的私钥，否则将引发错误。
  *
- * <p>Operations can be added to the transaction via their corresponding builder methods, and
- * each returns the TransactionBuilder object so they can be chained together. After adding
- * the desired operations, call the `build()` method on the `TransactionBuilder` to return a fully
- * constructed `{@link Transaction}` that can be signed. The returned transaction will contain the
- * sequence number of the source account and include the signature from the source account.</p>
+ * <p>   Operations可以被相应的构建方法添加到transaction中。每次构建方法后都会再次返回TransactionBuilder对象，因此可以链式操作
+ *  在添加所需要的Operations之后可以调用在`TransactionBuilder`调用`build()`方法，将返回一个完整的构造的
+ * 可被签名的 `{@link Transaction}`。
+ * 这个返回的transaction将包含序列号和源账户，和源账户的签名
  * 
- * <p><strong>Be careful about unsubmitted transactions!</strong> When you build a transaction, stellar-sdk
- * automatically increments the source account's sequence number. If you end up 
- * not submitting this transaction and submitting another one instead, it'll fail due to
- * the sequence number being wrong. So if you decide not to use a built transaction,
- * make sure to update the source account's sequence number 
- * with [Server.loadAccount](https://stellar.github.io/js-stellar-sdk/Server.html#loadAccount) before creating another transaction.</p>
+ * <p><strong>注意使用不提交的transaction</strong>当构建一个trnsaction， osch-sdk
+ * 将自动将来源账户的sequence number加一. 如果你没有提交这个交易而在这个账户发起了另一个交易。
+ * 这个交易在发起时将失败 。因为该账户的sequence已经加一，必须更新transaction构建。
  *
- * <p>The following code example creates a new transaction with {@link Operation.createAccount} and
- * {@link Operation.payment} operations.
- * The Transaction's source account first funds `destinationA`, then sends
- * a payment to `destinationB`. The built transaction is then signed by `sourceKeypair`.</p>
+ * <p>下面代码是创建包含 {@link Operation.createAccount}和{@link Operation.payment}的transaction实例
+ * Transaction的来源账户`destinationA`, 发送一笔交易（payment）到`destinationB`.
+ *  这个transaction应该被签名由`sourceKeypair`.</p>
  *
  * ```
  * var transaction = new TransactionBuilder(source)
@@ -108,7 +100,7 @@ export class TransactionBuilder {
   }
 
   /**
-   * Because of the distributed nature of the Stellar network it is possible that the status of your transaction
+   * Because of the distributed nature of Osch network it is possible that the status of your transaction
    * will be determined after a long time if the network is highly congested.
    * If you want to be sure to receive the status of the transaction within a given period you should set the
    * {@link TimeBounds} with <code>maxTime</code> on the transaction (this is what <code>setTimeout</code> does

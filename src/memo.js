@@ -27,11 +27,10 @@ export const MemoHash = 'hash';
 export const MemoReturn = 'return';
 
 /**
- * `Memo` represents memos attached to transactions.
+ * `Memo` 表示一个transaction的备忘录
  *
  * @param {string} type - `MemoNone`, `MemoID`, `MemoText`, `MemoHash` or `MemoReturn`
  * @param {*} value - `string` for `MemoID`, `MemoText`, buffer of hex string for `MemoHash` or `MemoReturn`
- * @see [Transactions concept](https://www.stellar.org/developers/learn/concepts/transactions.html)
  * @class Memo
  */
 export class Memo {
