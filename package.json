@@ -1,7 +1,7 @@
 {
-  "name": "stellar-base",
+  "name": "osch-base",
   "version": "0.13.0",
-  "description": "Low level stellar support library",
+  "description": "Low level osch support library",
   "main": "lib/index.js",
   "scripts": {
     "test": "babel-node ./node_modules/gulp/bin/gulp.js test:node",

@@ -6,11 +6,8 @@ import { Keypair } from './keypair';
 import { StrKey } from './strkey';
 
 /**
- * Asset class represents an asset, either the native asset (`XLM`)
- * or an asset code / issuer account ID pair.
- *
- * An asset code describes an asset code and issuer pair. In the case of the native
- * asset XLM, the issuer will be null.
+ * Asset表示一种资产可以是本币osch或 asset code/发行人ID对应的资产
+ * 一个资产指的是一个资产code和发行人ID一对，对于本币osch，发行人为null
  *
  * @constructor
  * @param {string} code - The asset code.
@@ -114,7 +111,6 @@ export class Asset {
   }
 
   /**
-   * @see [Assets concept](https://www.stellar.org/developers/learn/concepts/assets.html)
    * @returns {string} Asset type. Can be one of following types:
    *
    * * `native`

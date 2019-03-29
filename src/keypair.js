@@ -6,12 +6,11 @@ import { StrKey } from './strkey';
 import xdr from './generated/stellar-xdr_generated';
 
 /**
- * `Keypair` represents public (and secret) keys of the account.
+ * `Keypair` 表示一个公钥账户.
  *
- * Currently `Keypair` only supports ed25519 but in a future this class can be abstraction layer for other
- * public-key signature systems.
+ * 目前`Keypair`仅仅支持ed25519将来也会扩展其它公钥签名系统
  *
- * Use more convenient methods to create `Keypair` object:
+ * 有几种方便的方法可以创建 `Keypair`对象:
  * * `{@link Keypair.fromPublicKey}`
  * * `{@link Keypair.fromSecret}`
  * * `{@link Keypair.random}`
@@ -112,7 +111,7 @@ export class Keypair {
   static fromPublicKey(publicKey) {
     publicKey = StrKey.decodeEd25519PublicKey(publicKey);
     if (publicKey.length !== 32) {
-      throw new Error('Invalid Stellar public key');
+      throw new Error('Invalid Oschain public key');
     }
     return new this({ type: 'ed25519', publicKey });
   }
